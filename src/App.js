@@ -11,32 +11,34 @@ class App extends Component {
 	state = {
 		hovering: 0,
 		background: null,
-		loader: 1,
-		logoCollapser: {},
+		// loader: 1,
+		// logoCollapser: {},
 	};
-	componentDidMount() {
-		setTimeout(() => {
-			this.setState({
-				logoCollapser: {
-					borderRadius: '100%',
-					marginLeft: '10px',
-					marginTop: '30px',
-					width: '0',
-					height: '0',
-					color: 'transparent',
-				},
-			});
-		}, 3000);
-		setTimeout((s) => {
-			this.setState({ loader: 0 });
-		}, 4200);
-	}
+	// componentDidMount() {
+	// 	setTimeout(() => {
+	// 		this.setState({
+	// 			logoCollapser: {
+	// 				borderRadius: '100%',
+	// 				marginLeft: '10px',
+	// 				marginTop: '30px',
+	// 				width: '0',
+	// 				height: '0',
+	// 				color: 'transparent',
+	// 			},
+	// 		});
+	// 	}, 3000);
+	// 	setTimeout((s) => {
+	// 		this.setState({ loader: 0 });
+	// 	}, 4200);
+	// }
 	mouseEntered = (event) => {
 		this.setState({ hovering: 1, background: event.target.id });
 	};
 	mouseLeft = (event) => {
 		this.setState({ hovering: 0, background: null });
 	};
+
+	var height = 
 
 	render() {
 		let blueSlider = {};
@@ -58,6 +60,7 @@ class App extends Component {
 				backgroundPosition: 'unset',
 				zIndex: '5',
 				transform: 'scale(1.1,1.1)',
+				position: 'fixed'
 			};
 			headLine = {
 				width: '100%',
@@ -68,23 +71,23 @@ class App extends Component {
 
 		let Screen = (
 			<div className='App'>
-				<div className='Loader' style={{ ...this.state.logoCollapser }}>
+				{/* <div className='Loader' style={{ ...this.state.logoCollapser }}>
 					<Animated animationIn='slideInUp' isVisible={true}>
 						<div>
 							<h3>Hey, this is Pranay and you are watching my portfolio!</h3>
 						</div>
 					</Animated>
-				</div>
+				</div> */}
 			</div>
 		);
 
-		if (!this.state.loader) {
+		 
 			Screen = (
 				<div className='App'>
-					<nav>
-						<div className='Logo'>
+					<nav className="">
+						{/* <div className='Logo'>
 							<div className='red'>B</div>
-						</div>
+						</div> */}
 						<span className='Projects'>
 							<h4>
 								Hobbies{' '}
@@ -93,20 +96,20 @@ class App extends Component {
 								</span>
 							</h4>
 						</span>
-						<div className='Menu'>
+						{/* <div className='Menu'>
 							<p>
 								More <span>//</span>
 							</p>
-						</div>
+						</div> */}
 					</nav>
 					<div className='Background' style={backGround}></div>
 					<div className='BlueSlider' style={blueSlider}></div>
 
-					<div className='MainContainer'>
+					<div className='MainContainer' id="container">
 						{' '}
 						<TextHover
 							id={RubiksCube}
-							text='Cubing'
+							text='Senior1'
 							MouseEntered={this.mouseEntered}
 							MouseLeft={this.mouseLeft}
 							hoverActive={this.state.hovering}
@@ -125,29 +128,46 @@ class App extends Component {
 							MouseLeft={this.mouseLeft}
 							hoverActive={this.state.hovering}
 						/>
-						<footer>
-							<Animated
-								animationIn='slideInUp'
-								
-								isVisible={true}
-							
-								
-								animationIn='slideInUp'>
-								<div className='Footer' style={footer}>
-									<p>Pranay Simejiya@BITS Pilani</p>
-								</div>
-								<div className='Footer2' style={footer}>
-									<p>f20190267@pilani.bits-pilani.ac.in</p>
-								</div>
-							</Animated>
-						</footer>
-						<div className='Pencil'>
-							<img src={Pencil} alt='' />
-						</div>
+						<TextHover
+							id={RubiksCube}
+							text='Senior1'
+							MouseEntered={this.mouseEntered}
+							MouseLeft={this.mouseLeft}
+							hoverActive={this.state.hovering}
+						/>
+						<TextHover
+							id={RubiksCube}
+							text='Senior1'
+							MouseEntered={this.mouseEntered}
+							MouseLeft={this.mouseLeft}
+							hoverActive={this.state.hovering}
+						/>
+						<TextHover
+							id={RubiksCube}
+							text='Senior1'
+							MouseEntered={this.mouseEntered}
+							MouseLeft={this.mouseLeft}
+							hoverActive={this.state.hovering}
+						/>
+						<TextHover
+							id={RubiksCube}
+							text='Senior1'
+							MouseEntered={this.mouseEntered}
+							MouseLeft={this.mouseLeft}
+							hoverActive={this.state.hovering}
+						/>
+						<TextHover
+							id={RubiksCube}
+							text='Senior1'
+							MouseEntered={this.mouseEntered}
+							MouseLeft={this.mouseLeft}
+							hoverActive={this.state.hovering}
+						/>
+						
 					</div>
 				</div>
 			);
-		}
+		
 		return Screen;
 	}
 }
